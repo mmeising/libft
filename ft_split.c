@@ -6,7 +6,7 @@
 /*   By: mmeising <mmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/02 17:30:02 by mmeising          #+#    #+#             */
-/*   Updated: 2021/07/17 18:25:11 by mmeising         ###   ########.fr       */
+/*   Updated: 2021/07/17 20:11:25 by mmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,8 @@ static size_t	*ft_set_headntail(char const *s, char c, size_t headntail[2])
 	return (headntail);
 }
 
-static size_t	ft_do_strings(char const *s, char c, size_t headntail[2], char **split)
+static size_t	ft_do_strings(char const *s, char c,
+			 size_t headntail[2], char **split)
 {
 	size_t	i;
 	size_t	j;
@@ -67,7 +68,7 @@ static size_t	ft_do_strings(char const *s, char c, size_t headntail[2], char **s
 				i--;
 			}
 			free(split);
-			return ((size_t)NULL);
+			return (0);
 		}
 		split[i][headntail[1] - headntail[0]] = '\0';
 		headntail[0] = headntail[1];
