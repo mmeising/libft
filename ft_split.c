@@ -6,7 +6,7 @@
 /*   By: mmeising <mmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/02 17:30:02 by mmeising          #+#    #+#             */
-/*   Updated: 2021/07/17 20:11:25 by mmeising         ###   ########.fr       */
+/*   Updated: 2021/07/17 20:27:53 by mmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ static size_t	*ft_set_headntail(char const *s, char c, size_t headntail[2])
 }
 
 static size_t	ft_do_strings(char const *s, char c,
-			 size_t headntail[2], char **split)
+				size_t headntail[2], char **split)
 {
 	size_t	i;
 	size_t	j;
