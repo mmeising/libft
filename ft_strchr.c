@@ -6,7 +6,7 @@
 /*   By: mmeising <mmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/16 19:10:35 by mmeising          #+#    #+#             */
-/*   Updated: 2021/07/15 18:26:22 by mmeising         ###   ########.fr       */
+/*   Updated: 2021/08/13 14:59:18 by mmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,17 +21,23 @@ char	*ft_strchr(const char *str, int c)
 	i = 0;
 	while (str[i] != '\0')
 	{
-		if (str[i] == c)
+		if (str[i] == (char)c)
 		{
 			ptr = &str[i];
 			return ((char *)ptr);
 		}
 		i++;
 	}
-	if (c == '\0')
+	if ((char)c == '\0')
 	{
 		ptr = &str[i];
 		return ((char *)ptr);
 	}
 	return (NULL);
+}
+#include <stdio.h>
+#include <string.h>
+int	main(void)
+{
+	printf("%s\n%s\n", ft_strchr("tester", 't' + 256), strchr("tester", 't' + 256));
 }

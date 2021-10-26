@@ -6,7 +6,7 @@
 /*   By: mmeising <mmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/17 19:48:46 by mmeising          #+#    #+#             */
-/*   Updated: 2021/07/10 19:29:15 by mmeising         ###   ########.fr       */
+/*   Updated: 2021/07/25 22:00:43 by mmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,13 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 	if (dst_len <= dstsize)
 		dst[dst_len] = '\0';
 	return (src_len);
+}
+#include <stdio.h>
+#include <string.h>
+int	main(void)
+{
+	char	dst[20] = "destination";
+	char	src[4] = "sour";
+	ft_strlcat(dst, src, 20);
+	printf("%s\n", src);
 }
