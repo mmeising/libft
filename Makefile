@@ -6,45 +6,90 @@
 #    By: mmeising <mmeising@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/01 20:26:16 by mmeising          #+#    #+#              #
-#    Updated: 2021/07/14 17:39:14 by mmeising         ###   ########.fr        #
+#    Updated: 2021/10/29 17:31:38 by mmeising         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libft.a
+#Makefile of outer project needs to include libft and its own header, so: 
+#-I ./libft/header -I ./header
 
-SRCS = ft_memset.c ft_bzero.c ft_memcpy.c ft_memmove.c \
-		ft_memchr.c ft_memcmp.c ft_strlen.c ft_strlcpy.c ft_strlcat.c \
-		ft_strchr.c ft_strrchr.c ft_strnstr.c ft_strncmp.c ft_atoi.c \
-		ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c \
-		ft_toupper.c ft_tolower.c ft_calloc.c ft_strdup.c ft_substr.c \
-		ft_strjoin.c ft_strtrim.c ft_split.c ft_itoa.c ft_strmapi.c \
-		ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c \
-		ft_striteri.c
+CC := gcc
+CCFLAGS ?= -Wall -Werror -Wextra
 
-OBJ = $(SRCS:.c=.o)
+SRC_CHAR := \
+	ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c ft_isprint.c \
+	ft_tolower.c ft_toupper.c
 
-BONUS = ft_lst*.c
+SRC_IO := \
+	ft_putchar_fd.c ft_putendl_fd.c ft_putnbr_fd.c ft_putstr_fd.c
 
-BONUS_OBJ = $(BONUS:.c=.o)
+SRC_LIST := \
+	ft_lstadd_back.c ft_lstadd_front.c ft_lstclear.c ft_lstdelone.c \
+	ft_lstiter.c ft_lstlast.c ft_lstmap.c ft_lstnew.c ft_lstsize.c
 
-INCLUDES=./
+SRC_MEMORY := \
+	ft_bzero.c ft_calloc.c ft_memchr.c ft_memcmp.c ft_memcpy.c ft_memmove.c \
+	ft_memset.c
+
+SRC_STRING := \
+	ft_atoi.c ft_itoa.c ft_split.c ft_strchr.c ft_strdup.c ft_striteri.c \
+	ft_strjoin.c ft_strlcat.c ft_strlcpy.c ft_strlen.c ft_strmapi.c \
+	ft_strncmp.c ft_strnstr.c ft_strrchr.c ft_strtrim.c ft_substr.c
+
+SRCS := $(SRC_CHAR) $(SRC_IO) $(SRC_LIST) $(SRC_MEMORY) $(SRC_STRING)
+
+OBJ_DIR := ./obj
+OBJ := $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))
+
+NAME := ./lib/libft.a
+
+HEADER := ./header
+HEADERFILES := ./header/*.h
+
+# Colorcodes
+Y := "\033[33m"
+R := "\033[31m"
+G := "\033[32m"
+B := "\033[34m"
+X := "\033[0m"
+UP := "\033[A"
+CUT := "\033[K"
 
 all: $(NAME)
+	@printf "\n"
+	@echo $(G)" __    _ _   ___ _   "
+	@echo $(G)"|  |  |_| |_|  _| |_ "
+	@echo $(G)"|  |__| | . |  _|  _|"
+	@echo $(G)"|_____|_|___|_| |_|  "$(X)
+	@printf "\n\n"
 
-$(NAME): $(SRCS) libft.h
-	gcc -Wall -Wextra -Werror -I$(INCLUDES) -c $(SRCS)
-	ar rcs $(NAME) $(OBJ)
+$(NAME): $(OBJ)
+	@mkdir -p lib
+	@echo $(Y)Compiling [$(NAME)]...$(X)
+	@ar -rcs $(NAME) $(OBJ)
+	@printf $(UP)$(CUT)
+	@echo $(G)Finished"  "[$(NAME)]...$(X)
+
+$(OBJ_DIR)/%.o: ./src/*/%.c $(HEADERFILES)
+	@echo $(Y)Compiling [$@]...$(X)
+	@mkdir -p obj
+	@$(CC) $(CCFLAGS) -I $(HEADER) -o $@ -c $<
+	@printf $(UP)$(CUT)
 
 clean:
-	rm -f $(OBJ) $(BONUS_OBJ)
+	@if [ -d "${OBJ_DIR}" ]; then \
+		echo $(R)Cleaning"  "[$(OBJ_DIR)]...$(X); \
+		rm -r ${OBJ_DIR}; \
+		echo $(G)Cleaned!; \
+	fi \
 
 fclean: clean
-	rm -f $(NAME)
+	@if [ -f "$(NAME)" ]; then \
+		echo $(R)Cleaning"  "[$(NAME)]...$(X); \
+		rm -r $(NAME); \
+		echo $(G)Cleaned!; \
+	fi \
 
 re: fclean all
-
-bonus: $(BONUS) libft.h
-	gcc -Wall -Wextra -Werror -I$(INCLUDES) -c $(BONUS)
-	ar rcs $(NAME) $(BONUS_OBJ)
 
 .PHONY: all clean fclean re
