@@ -6,7 +6,7 @@
 #    By: mmeising <mmeising@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/01 20:26:16 by mmeising          #+#    #+#              #
-#    Updated: 2021/11/04 22:44:38 by mmeising         ###   ########.fr        #
+#    Updated: 2021/11/04 23:23:40 by mmeising         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,9 +32,10 @@ SRC_MEMORY := \
 	ft_memcpy.c ft_memmove.c ft_memset.c
 
 SRC_STRING := \
-	ft_atoi.c ft_itoa.c ft_split.c ft_strchr.c ft_strdup.c ft_striteri.c \
-	ft_strjoin.c ft_strlcat.c ft_strlcpy.c ft_strlen.c ft_strmapi.c \
-	ft_strncmp.c ft_strnstr.c ft_strrchr.c ft_strtrim.c ft_substr.c
+	ft_atoi.c ft_itoa.c ft_split.c ft_strchr.c ft_strconcat.c ft_strdup.c \
+	ft_striteri.c ft_strjoin.c ft_strlcat.c ft_strlcpy.c ft_strlen.c \
+	ft_strmapi.c ft_strncmp.c ft_strnstr.c ft_strrchr.c ft_strtrim.c \
+	ft_substr.c
 
 SRCS := $(SRC_CHAR) $(SRC_IO) $(SRC_LIST) $(SRC_MEMORY) $(SRC_STRING)
 
