@@ -6,7 +6,7 @@
 #    By: mmeising <mmeising@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/01 20:26:16 by mmeising          #+#    #+#              #
-#    Updated: 2021/10/29 17:31:38 by mmeising         ###   ########.fr        #
+#    Updated: 2021/11/04 22:44:38 by mmeising         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,8 +28,8 @@ SRC_LIST := \
 	ft_lstiter.c ft_lstlast.c ft_lstmap.c ft_lstnew.c ft_lstsize.c
 
 SRC_MEMORY := \
-	ft_bzero.c ft_calloc.c ft_memchr.c ft_memcmp.c ft_memcpy.c ft_memmove.c \
-	ft_memset.c
+	ft_bzero.c ft_calloc.c ft_free_c.c ft_free_i.c ft_memchr.c ft_memcmp.c \
+	ft_memcpy.c ft_memmove.c ft_memset.c
 
 SRC_STRING := \
 	ft_atoi.c ft_itoa.c ft_split.c ft_strchr.c ft_strdup.c ft_striteri.c \
