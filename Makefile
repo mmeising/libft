@@ -6,7 +6,7 @@
 #    By: mmeising <mmeising@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/01 20:26:16 by mmeising          #+#    #+#              #
-#    Updated: 2021/11/04 23:23:40 by mmeising         ###   ########.fr        #
+#    Updated: 2021/11/05 00:03:18 by mmeising         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,9 @@
 
 CC := gcc
 CCFLAGS ?= -Wall -Werror -Wextra
+
+SRC_GNL := \
+	get_next_line.c get_next_line_utils.c
 
 SRC_CHAR := \
 	ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c ft_isprint.c \
@@ -37,7 +40,7 @@ SRC_STRING := \
 	ft_strmapi.c ft_strncmp.c ft_strnstr.c ft_strrchr.c ft_strtrim.c \
 	ft_substr.c
 
-SRCS := $(SRC_CHAR) $(SRC_IO) $(SRC_LIST) $(SRC_MEMORY) $(SRC_STRING)
+SRCS := $(SRC_GNL) $(SRC_CHAR) $(SRC_IO) $(SRC_LIST) $(SRC_MEMORY) $(SRC_STRING)
 
 OBJ_DIR := ./obj
 OBJ := $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))
