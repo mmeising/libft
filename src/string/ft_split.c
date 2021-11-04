@@ -6,7 +6,7 @@
 /*   By: mmeising <mmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/02 17:30:02 by mmeising          #+#    #+#             */
-/*   Updated: 2021/11/04 18:51:47 by mmeising         ###   ########.fr       */
+/*   Updated: 2021/11/04 19:38:49 by mmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static size_t	ft_ele_count(char const *s, char c)
 				i++;
 		}
 		else
-			i++;		
+			i++;
 	}
 	return (count);
 }
