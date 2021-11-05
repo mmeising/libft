@@ -6,7 +6,7 @@
 /*   By: mmeising <mmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 23:10:56 by mmeising          #+#    #+#             */
-/*   Updated: 2021/11/04 23:41:40 by mmeising         ###   ########.fr       */
+/*   Updated: 2021/11/05 17:25:01 by mmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,12 @@ char	*ft_strcon(char **s1, char **s2)
 {
 	char	*ret;
 
-	ret = ft_concatenate(*s1, *s2);
-	ft_free_c(s1);
-	ft_free_c(s2);
-	return (ret);
+	if (*s1 && *s2)
+	{
+		ret = ft_concatenate(*s1, *s2);
+		ft_free_c(s1);
+		ft_free_c(s2);
+		return (ret);
+	}
+	return (NULL);
 }
