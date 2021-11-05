@@ -6,7 +6,7 @@
 /*   By: mmeising <mmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/16 20:14:20 by mmeising          #+#    #+#             */
-/*   Updated: 2021/11/04 23:40:33 by mmeising         ###   ########.fr       */
+/*   Updated: 2021/11/05 00:19:36 by mmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdio.h>
+# include "get_next_line.h"
 
 typedef struct s_list
 {

@@ -6,7 +6,7 @@
 #    By: mmeising <mmeising@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/01 20:26:16 by mmeising          #+#    #+#              #
-#    Updated: 2021/11/05 00:03:18 by mmeising         ###   ########.fr        #
+#    Updated: 2021/11/05 01:15:00 by mmeising         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -77,7 +77,7 @@ $(NAME): $(OBJ)
 $(OBJ_DIR)/%.o: ./src/*/%.c $(HEADERFILES)
 	@echo $(Y)Compiling [$@]...$(X)
 	@mkdir -p obj
-	@$(CC) $(CCFLAGS) -I $(HEADER) -o $@ -c $<
+	@$(CC) $(CCFLAGS) -I $(HEADER) -c $< -o $@
 	@printf $(UP)$(CUT)
 
 clean:
