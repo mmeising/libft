@@ -6,7 +6,7 @@
 #    By: mmeising <mmeising@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/01 20:26:16 by mmeising          #+#    #+#              #
-#    Updated: 2021/11/05 01:15:00 by mmeising         ###   ########.fr        #
+#    Updated: 2021/11/07 15:32:48 by mmeising         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,8 +20,8 @@ SRC_GNL := \
 	get_next_line.c get_next_line_utils.c
 
 SRC_CHAR := \
-	ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c ft_isprint.c \
-	ft_tolower.c ft_toupper.c
+	ft_in_set.c ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c \
+	ft_isprint.c ft_tolower.c ft_toupper.c
 
 SRC_IO := \
 	ft_putchar_fd.c ft_putendl_fd.c ft_putnbr_fd.c ft_putstr_fd.c
