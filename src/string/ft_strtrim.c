@@ -6,27 +6,11 @@
 /*   By: mmeising <mmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 16:59:07 by mmeising          #+#    #+#             */
-/*   Updated: 2021/10/27 23:32:54 by mmeising         ###   ########.fr       */
+/*   Updated: 2021/11/07 15:29:06 by mmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-int	ft_check_if_set(char c, char const *set)
-{
-	int	len;
-	int	flag;
-
-	len = ft_strlen(set);
-	flag = 0;
-	while (len >= 0)
-	{
-		if (c == set[len])
-			flag = 1;
-		len--;
-	}
-	return (flag);
-}
 
 char	*ft_i_is_len_s1(char *trimmed)
 {
@@ -51,14 +35,14 @@ char	*ft_strtrim(char const *s1, char const *set)
 	i = 0;
 	len = ft_strlen(s1) - 1;
 	trimmed = NULL;
-	while (s1[i] && ft_check_if_set(s1[i], set))
+	while (s1[i] && ft_in_set(s1[i], set))
 		i++;
 	if (i == ft_strlen(s1))
 		trimmed = ft_i_is_len_s1(trimmed);
 	if (i == ft_strlen(s1))
 		return (trimmed);
 	start = (char *)&s1[i];
-	while (s1[len] && ft_check_if_set(s1[len], set))
+	while (s1[len] && ft_in_set(s1[len], set))
 		len--;
 	end = (char *)&s1[len];
 	trimmed = malloc(len + 1 - i + 1);

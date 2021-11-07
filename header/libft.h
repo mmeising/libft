@@ -6,7 +6,7 @@
 /*   By: mmeising <mmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/16 20:14:20 by mmeising          #+#    #+#             */
-/*   Updated: 2021/11/05 01:25:35 by mmeising         ###   ########.fr       */
+/*   Updated: 2021/11/07 15:29:49 by mmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ char	*ft_strrchr(const char *str, int c);
 char	*ft_strnstr(char *haystack, char *needle, size_t len);
 int		ft_strncmp(const char *str1, const char *str2, size_t n);
 int		ft_atoi(const char *str);
+int		ft_in_set(char c, char const *set);
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
 int		ft_isalnum(int c);
