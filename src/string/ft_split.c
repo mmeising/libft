@@ -12,10 +12,10 @@
 
 #include "libft.h"
 
-static size_t	ft_ele_count(char const *s, char c)
+static int	ft_ele_count(char const *s, char c)
 {
-	size_t	count;
-	int		i;
+	int	count;
+	int	i;
 
 	count = 0;
 	i = 0;
@@ -51,15 +51,12 @@ static size_t	*ft_set_headntail(char const *s, char c, size_t headntail[2])
 static size_t	ft_do_strings(char const *s, char c,
 				size_t headntail[2], char **split)
 {
-	size_t	i;
-	size_t	j;
+	int	i;
 
 	i = 0;
-	j = 0;
 	while (i < ft_ele_count(s, c))
 	{
 		ft_set_headntail(s, c, headntail);
-		j = 0;
 		split[i] = ft_substr(s, headntail[0], headntail[1] - headntail[0] + 1);
 		if (split[i] == NULL)
 		{
@@ -83,15 +80,11 @@ static size_t	ft_do_strings(char const *s, char c,
 char	**ft_split(char const *s, char c)
 {
 	char	**split;
-	size_t	i;
-	size_t	j;
 	size_t	headntail[2];
-	size_t	test;
+	int		test;
 
 	if (!s)
 		return (NULL);
-	i = 0;
-	j = 0;
 	headntail[0] = 0;
 	headntail[1] = 0;
 	split = (char **)malloc((ft_ele_count(s, c) + 1) * sizeof(char *));

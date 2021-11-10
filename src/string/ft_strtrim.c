@@ -26,8 +26,6 @@ char	*ft_i_is_len_s1(char *trimmed)
  */
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	char	*start;
-	char	*end;
 	char	*trimmed;
 	size_t	i;
 	size_t	len;
@@ -41,10 +39,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 		trimmed = ft_i_is_len_s1(trimmed);
 	if (i == ft_strlen(s1))
 		return (trimmed);
-	start = (char *)&s1[i];
 	while (s1[len] && ft_in_set(s1[len], set))
 		len--;
-	end = (char *)&s1[len];
 	trimmed = malloc(len + 1 - i + 1);
 	if (trimmed == NULL)
 		return (NULL);
