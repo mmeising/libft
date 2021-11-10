@@ -19,13 +19,11 @@ void	*ft_calloc(size_t count, size_t size)
 {
 	void			*ptr;
 	unsigned int	i;
-	char			*char_ptr;
 
 	i = (count * size);
 	ptr = malloc(i);
 	if (ptr == NULL)
 		return (NULL);
-	char_ptr = (char *)ptr;
 	ft_bzero(ptr, count * size);
 	return (ptr);
 }
