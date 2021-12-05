@@ -6,7 +6,7 @@
 #    By: mmeising <mmeising@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/01 20:26:16 by mmeising          #+#    #+#              #
-#    Updated: 2021/11/07 15:32:48 by mmeising         ###   ########.fr        #
+#    Updated: 2021/12/06 00:05:07 by mmeising         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -84,14 +84,14 @@ clean:
 	@if [ -d "${OBJ_DIR}" ]; then \
 		echo $(R)Cleaning"  "[$(OBJ_DIR)]...$(X); \
 		rm -r ${OBJ_DIR}; \
-		echo $(G)Cleaned!; \
+		echo $(G)Cleaned!$(X); \
 	fi \
 
 fclean: clean
 	@if [ -f "$(NAME)" ]; then \
 		echo $(R)Cleaning"  "[$(NAME)]...$(X); \
 		rm -r $(NAME); \
-		echo $(G)Cleaned!; \
+		echo $(G)Cleaned!$(X); \
 	fi \
 
 re: fclean all
