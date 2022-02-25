@@ -3,18 +3,19 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mmeising <mmeising@student.42.fr>          +#+  +:+       +#+         #
+#    By: mmeising <mmeising@student.42heilbronn.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/01 20:26:16 by mmeising          #+#    #+#              #
-#    Updated: 2021/12/06 00:05:07 by mmeising         ###   ########.fr        #
+#    Updated: 2022/02/25 03:23:20 by mmeising         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 #Makefile of outer project needs to include libft and its own header, so: 
 #-I ./libft/header -I ./header
 
+#-fsanitize=leak flag should be active in all Makefiles if needed
 CC := gcc
-CCFLAGS ?= -Wall -Werror -Wextra
+CFLAGS ?= -Wall -Werror -Wextra -fsanitize=leak
 
 SRC_GNL := \
 	get_next_line.c get_next_line_utils.c
@@ -32,7 +33,7 @@ SRC_LIST := \
 
 SRC_MEMORY := \
 	ft_bzero.c ft_calloc.c ft_free_c.c ft_free_i.c ft_memchr.c ft_memcmp.c \
-	ft_memcpy.c ft_memmove.c ft_memset.c
+	ft_memcpy.c ft_memmove.c ft_memset.c ft_2d_char_len.c ft_free_2d_char.c
 
 SRC_STRING := \
 	ft_atoi.c ft_itoa.c ft_split.c ft_strchr.c ft_strconcat.c ft_strdup.c \
@@ -47,8 +48,8 @@ OBJ := $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))
 
 NAME := ./lib/libft.a
 
-HEADER := ./header
-HEADERFILES := ./header/*.h
+HEADER := ./include
+HEADERFILES := ./include/*.h
 
 # Colorcodes
 Y := "\033[33m"
@@ -77,7 +78,7 @@ $(NAME): $(OBJ)
 $(OBJ_DIR)/%.o: ./src/*/%.c $(HEADERFILES)
 	@echo $(Y)Compiling [$@]...$(X)
 	@mkdir -p obj
-	@$(CC) $(CCFLAGS) -I $(HEADER) -c $< -o $@
+	@$(CC) $(CFLAGS) -I $(HEADER) -c $< -o $@
 	@printf $(UP)$(CUT)
 
 clean:
